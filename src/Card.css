@@ -1,18 +1,21 @@
 .Card {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(110.7deg, rgb(9, 154, 151) 6.3%, rgb(21, 205, 168) 90.6%);;
-    border: 1px solid #282c34;
+    background: radial-gradient(755px at 10.1% 95.3%, rgb(242, 188, 141) 0%, rgb(242, 159, 141) 100.2%);
+    border: 1px solid #F2BC8DFF;
     border-radius: 5px;
     padding: 25px;
     cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translate(0);
-    transition: transform 1.30s ease-out;
-
+    transition: transform 1.10s ease-out;
 }
 
 .Card:hover {
     transform: scale(1.15);
+}
+
+.Card h1, h2 {
+    color:#282c34;
 }
