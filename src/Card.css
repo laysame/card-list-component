@@ -8,7 +8,6 @@
     cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
-
     transition: transform 0.50s ease-out;
 }
 

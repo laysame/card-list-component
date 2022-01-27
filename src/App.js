@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import {CardList} from "./CardList";
-import {Col, Container, Row} from "react-bootstrap";
+import {SearchBox} from "./SearchBox";
 
 class App extends React.Component {
     constructor() {
@@ -26,16 +26,12 @@ class App extends React.Component {
 
         return (
             <div className="App">
-                <Container fluid>
-                    <Row>
-                        <Col className="m-5">
-                            <input type="search" placeholder={'Search a monster'} onChange={e => {
-                                this.setState({searchField: e.target.value}, () => console.log(this.state))
-                            }}/>
-                        </Col>
-                    </Row>
-                </Container>
-
+                <SearchBox
+                 placeholder={'Search monsters'}
+                 handleChange={e => {
+                    this.setState({searchField: e.target.value}, () => console.log(this.state))
+                }}
+                />
                 <CardList monsters={filteredMonsters}/>
             </div>
         )
