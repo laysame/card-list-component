@@ -8,12 +8,12 @@
     cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
-    transform: translate(0);
-    transition: transform 1.10s ease-out;
+
+    transition: transform 0.50s ease-out;
 }
 
 .Card:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 
 .Card h1, h2 {
