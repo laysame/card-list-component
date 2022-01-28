@@ -11,6 +11,7 @@ class App extends React.Component {
             monsters: [],
             searchField: ''
         };
+        
     }
 
     componentDidMount() {
@@ -19,6 +20,9 @@ class App extends React.Component {
             .then(users => this.setState({monsters: users}));
     }
 
+    handleChange = (e) => {
+        this.setState({searchField: e.target.value});
+    }
 
     render() {
         const { monsters,  searchField} = this.state;
@@ -28,9 +32,7 @@ class App extends React.Component {
             <div className="App">
                 <SearchBox
                  placeholder={'Search monsters'}
-                 handleChange={e => {
-                    this.setState({searchField: e.target.value}, () => console.log(this.state))
-                }}
+                 handleChange={this.handleChange}
                 />
                 <CardList monsters={filteredMonsters}/>
             </div>
