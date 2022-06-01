@@ -9,32 +9,42 @@ class App extends React.Component {
 
         this.state = {
             monsters: [],
-            searchField: ''
         };
-        
+
     }
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
-            .then(users => this.setState({monsters: users}));
+            .then(users => this.setState(
+                () => {
+                    return {monsters: users}
+                }
+            ));
     }
 
-    handleChange = (e) => {
-        this.setState({searchField: e.target.value});
+    handleChange = (event) => {
+        const searchString = event.target.value.toLowerCase();
+        const filteredMonsters = this.state.monsters.filter((monster) => {
+            return monster.name.toLowerCase().includes(searchString)
+        });
+
+        this.setState(() => {
+            return {monsters: filteredMonsters}
+        })
+
     }
 
     render() {
-        const { monsters,  searchField} = this.state;
-        const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()));
+        //const {monsters, searchField} = this.state;
 
         return (
             <div className="App">
                 <SearchBox
-                 placeholder={'Search monsters'}
-                 handleChange={this.handleChange}
+                    placeholder={'Search monsters'}
+                    handleChange={this.handleChange}
                 />
-                <CardList monsters={filteredMonsters}/>
+                <CardList />
             </div>
         )
     }
