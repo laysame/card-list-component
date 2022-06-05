@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
-import {CardList} from "./components/card-list/CardList";
-import {SearchBox} from "./components/search-box/SearchBox";
+import CardList from "./components/card-list/CardList";
+import SearchBox from "./components/search-box/SearchBox";
 
 export default function App() {
 
