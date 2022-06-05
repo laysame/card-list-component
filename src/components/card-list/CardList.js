@@ -1,10 +1,9 @@
 import React from "react";
 import "./CardList.css";
-import {Card} from "../../Card";
+import {Card} from "../card/Card";
 
 
 export class CardList extends React.Component {
-
     render() {
         const {monsters} = this.props;
 
