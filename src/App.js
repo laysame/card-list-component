@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import CardList from "./components/card-list/CardList";
 import SearchBox from "./components/search-box/SearchBox";
 
+
 export default function App() {
 
     const [searchField, setSearchField] = useState('');
@@ -17,9 +18,17 @@ export default function App() {
     }, [monsters, searchField])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((users) => setMonsters(users));
+        const apiCall = async () => {
+            try {
+                const userResponse = await fetch('https://jsonplaceholder.typicode.com/users');
+                const users = await userResponse.json();
+                setMonsters(users)
+            } catch (err) {
+                console.log("Error")
+            }
+        }
+        apiCall();
+
     }, []);
 
     function handleChange(event) {
@@ -37,4 +46,5 @@ export default function App() {
             <CardList monsters={filteredMonsters}/>
         </div>
     )
+
 }
